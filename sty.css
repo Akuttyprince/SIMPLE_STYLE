@@ -1,0 +1,87 @@
+SIMPLE*{
+    background-image:url(creative-geometric-design-space_53876-89787.avif) ; 
+   margin-left: 100px;
+    
+    background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed; 
+
+
+}
+.title{
+   margin-left: 100px;
+   color: white;
+} 
+.container {
+    display: flex;
+    
+   margin-top: 35px;  
+    
+}
+.email-mob{
+   display: flex; 
+   margin-top: 35px; 
+}
+.add-zip{
+   display: flex; 
+   margin-top: 35px;  
+    
+}
+.name-field {
+   display: flex;
+   flex-direction: column;
+    
+}
+.label {
+   margin-bottom: 10px;  
+   color: white;
+    
+    
+}
+input {
+   padding: 5px;  
+   width: 150px;  
+   border: solid;
+   background-color: gray;
+   
+    
+}
+
+.heading{
+   margin-top: 50px;
+    
+}
+.card-cvv{
+   display: flex;
+      
+   margin-top: 35px; 
+    
+}
+.heading{
+   color: white;
+}
+
+
+
+.btn{
+   border-radius: 40px;
+   border: 0;
+   font-size: 1.8rem;
+   font-weight: 600;
+   margin: 1rem 0;
+   padding: 2rem 3rem;
+   text-transform: uppercase;
+   white-space: nowrap ;
+   cursor: pointer;
+   background-color: black;
+}
+.btn--primary{
+   background-color: rgb(96, 187, 12);
+   color: white;
+   margin-left: 400px;
+
+}
+.btn--primary:hover{
+   background: black;
+}

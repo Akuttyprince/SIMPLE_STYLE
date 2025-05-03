@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czen Captures</title>
+    <style>
+        /* Reset and basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: #000;
+           
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #343232;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .navbar-logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s;
+            gap: 20px;
+            padding-right: 10px;
+        }
+
+        .navbar-menu a:hover {
+            color: #ffdd57;
+        }
+
+        .sign-in {
+            padding: 8px 16px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .sign-in:hover {
+            background-color: #ffdd57;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 3 columns */
+            grid-template-rows: repeat(3, 1fr);
+            /* 4 rows */
+            gap: 10px;
+            /* Small gap between images */
+            padding: 20px;
+            max-width: 800px;
+            /* Adjust width as needed */
+            margin: 0PX;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 5px;
+            /* Optional: for rounded corners */
+        }
+
+        .container {
+            position: relative;
+            width: 300px;
+        }
+
+        .container img {
+            min-width: 40px;
+            min-height: 40px;
+            border: 2px solid black;
+            border-radius: 13px;
+            box-shadow: 4px 7px 7px 0px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 400ms;
+            display: block;
+
+        }
+
+        div img:hover {
+            filter: grayscale(1);
+            transform: scale(.80);
+
+
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 70%;
+            transform: translate(-50%, -50%) scale(0.8);
+            color: rgb(253, 253, 253);
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: top;
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            pointer-events: none;
+            /* Prevents the text from interfering with hover */
+        }
+
+        /* Show text on hover */
+        .container:hover .text {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(2);
+            /* Zoom-out effect on text */
+        }
+
+        .gallery {
+            margin-bottom: 50px;
+        }
+
+        .content {
+            border-top: 50px;
+            text-overflow: clip;
+            text-align: justify;
+            display: block;
+            background-color: white;
+            color: black;
+            margin-top: 30px;
+            margin-bottom: 20px;
+
+        }
+
+        .content p {
+            scroll-padding-top: 20%;
+        }
+
+        .content h1 {
+            text-align: center;
+            padding: 20px;
+            align-items: center;
+        }
+
+        .content img {
+            margin-left: 50%;
+        }
+
+        .portfolio h1 {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .portfolio {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            display: grid;
+          margin-left: 30%;
+            grid-template-columns: repeat(2, 1fr);
+            /* 3 columns */
+            grid-template-rows: repeat(3, 1fr);
+            /* 4 rows */
+            gap: 10px;
+            /* Small gap between images */
+            padding: 20px;
+            max-width: 800px;
+            /* Adjust width as needed */
+            margin: 20PX;
+        }
+
+        .portfolio img {
+            width: 50%;
+            height: auto;
+            display: block;
+            border-radius: 5px;
+            /* Optional: for rounded corners */
+        }
+        /*.gallery{
+    display:flex;
+    flex-wrap: nowrap;
+    justify-items: flex-start;
+    align-items: center;
+    flex-direction: column;
+    
+}*/
+
+        .image {
+            position: relative;
+            width: 300px;
+        }
+
+        .image img {
+            min-width: 400px;
+            min-height: 400px;
+            max-width: 800px;
+            max-height: 800px;
+            border: 2px solid black;
+            border-radius: 13px;
+            box-shadow: 4px 7px 7px 0px;
+            cursor: pointer;
+            margin: 10px;
+            position: relative;
+            text-align: center;
+            align-items: center;
+
+        }
+
+        .texts {
+            position: absolute;
+            top: 70%;
+            left: 30%;
+            color: rgb(253, 253, 253);
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: bottom;
+            opacity: 1;
+            pointer-events: none;
+            /* Prevents the text from interfering with hover */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        .jocker{
+    text-align: center;
+        height: 200px;
+        width: 600px;
+        border: 8px solid black;
+    }
+    .jocker0{
+        display: flex;
+      text-align: center;
+        flex-direction: row;
+        justify-content:flex-start;
+    }
+    .jocker1{
+        text-align: center;
+        width: 600px;
+        height: 200px;
+        align-items: center;
+        position: relative;
+        left: 30px;
+        margin-left: 10%;
+    }
+    .services{
+        max-width: 1000px;
+        margin: 10%;
+        padding: 10px;
+    }
+    .contact{
+        width: auto;
+        height: fit-content;
+    }
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-logo"><a href="page1.html">Czen Captures</a></div>
+        <div class="navbar-menu">
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+            <button class="sign-in">Sign In</button>
+            <button class="sign-in">book now</button>
+        </div>
+    </nav>
+    <br><br>
+
+    <section id="gallery">
+        <h1 style="display: block; margin-top: 80px; margin-left: 50%; padding-top:10%;">MY Gallery</h1>
+        <div class="image-grid">
+            <div class="container">
+                <img src="images/1.jpg" width="400" height="400">
+                <div class="text">Your Text Here</div>
+            </div>
+            <div class="container">
+
+                <img src="images/2.jpg" width="400" height="400">
+                <div class="text">Your Text Here</div>
+            </div>
+            <div class="container">
+                <img src="images/3.jpg" width="400" height="400">
+                <div class="text">Your Text Here</div>
+            </div>
+            <div class="container">
+                <img src="images/4.jpg" width="400" height="400">
+                <div class="text">Your Text Here</div>
+            </div>
+            <div class="container">
+
+                <img src="images/5.jpg" width="400" height="400">
+                <div class="text">Your Text Here</div>
+            </div>
+            <div class="container">
+                <img src="images/6.jpg" width="400" height="400">
+                <div class="text">Your Text Here</div>
+            </div>
+            <div class="container">
+                <img src="images/1.jpg" width="400" height="400">
+                <div class="text">Your Text Here</div>
+            </div>
+            <div class="container">
+
+                <img src="images/2.jpg" width="400" height="400">
+                <div class="text">Your Text Here</div>
+            </div>
+            <div class="container">
+                <img src="images/3.jpg" width="400" height="400">
+                <div class="text">Your Text Here</div>
+            </div>
+            <div class="container">
+                <img src="images/4.jpg" width="400" height="400">
+                <div class="text">Your Text Here</div>
+            </div>
+            <div class="container">
+
+                <img src="images/5.jpg" width="400" height="400">
+                <div class="text">Your Text Here</div>
+            </div>
+            <div class="container">
+                <img src="images/6.jpg" width="400" height="400">
+                <div class="text">Your Text Here</div>
+            </div>
+        </div>
+    </section>
+    <div class="content">
+        <h1>WE CAPTURE THE MOMENTS</h1><br><br>
+        <P>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, sequi! Id fugiat maiores dolorem
+            architecto at? Ea nisi amet maxime officia voluptatum, aperiam quam natus at, animi vitae consequatur
+            consectetur! Maiores optio facere ab blanditiis, earum aperiam placeat molestiae natus corporis, nam
+            possimus ipsa consequatur odio autem voluptates delectus ducimus.</P><br><br>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, itaque ducimus. Maxime eius officia
+            reiciendis nesciunt modi repudiandae laborum, a incidunt debitis? Tempore est fuga illum sed? Maxime
+            quisquam magnam error adipisci quas ad rerum commodi natus distinctio nisi, accusamus quae. Quod aut
+            reprehenderit tempora maxime, recusandae voluptas ut nobis!</P><br><br>
+        <img src="images/hello.jpg" alt="">
+    </div>
+    <h1 style="text-align: center; position: static;">portfolio</h1>
+    <div class="portfolio">
+
+        <div class="image">
+            <img src="images/1.jpg" >
+            <div class="texts">Your Text Here</div>
+        </div>
+        <div class="image">
+
+            <img src="images/2.jpg" width="400" height="400">
+            <div class="texts">Your Text Here</div>
+        </div>
+        <div class="image">
+            <img src="images/3.jpg" width="400" height="400">
+            <div class="texts">Your Text Here</div>
+        </div>
+        <div class="image">
+            <img src="images/4.jpg" width="400" height="400">
+            <div class="texts">Your Text Here</div>
+        </div>
+        <div class="image">
+
+            <img src="images/5.jpg" width="400" height="400">
+            <div class="texts">Your Text Here</div>
+        </div>
+        <div class="image">
+            <img src="images/6.jpg" width="400" height="400">
+            <div class="texts">Your Text Here</div>
+        </div>
+    </div>
+     <div class="services" >
+       <b> <h1 style="text-align: center;">SERVICES</h1></b><br><br>
+       <h6 style="text-align: center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt fuga, necessitatibus laudantium laborum amet adipisci nostrum? Dolores, fuga! Excepturi consequuntur deleniti reiciendis quidem labore voluptas aliquam placeat nihil, mollitia commodi soluta itaque, consequatur quis repudiandae dicta culpa. Sed nemo ratione veritatis illo aspernatur quos impedit debitis? Magnam dicta in vitae quidem expedita harum velit laudantium. Doloribus, voluptate dignissimos deserunt optio exercitationem minima sequi dolores. Illum eligendi nam error soluta nobis! Quaerat debitis pariatur temporibus. Officiis necessitatibus facere dolor saepe. Beatae id animi non hic ea perspiciatis officia placeat quidem!
+<br><br>
+       </h6>
+       <h6 style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel dignissimos cupiditate id consequatur iusto. Cupiditate consectetur assumenda odit commodi! Laboriosam illo sapiente corporis veritatis enim repellendus voluptate aspernatur dolores ipsam eaque incidunt nobis cumque sint debitis nisi pariatur repudiandae, officiis ad, quas natus! Cupiditate ea iusto iure! Laudantium sapiente cupiditate veritatis aliquam provident deserunt, libero dolores deleniti similique molestias nemo sequi commodi fugiat atque repellat beatae, explicabo, placeat perspiciatis magnam magni perferendis doloremque autem. Sit excepturi rerum ipsam eaque quas magnam, non tempore similique, delectus porro nesciunt atque mollitia? Voluptas.
+<br><br>
+       </h6>
+       <h6 style="text-align: center;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nisi corporis maxime facilis? Voluptatum deleniti dolores tempora aspernatur placeat sint dolorum adipisci. Porro ut explicabo, eligendi distinctio nulla alias iusto culpa pariatur accusamus laudantium incidunt fugiat vel velit nemo recusandae, hic eius doloremque laboriosam! Consectetur eum vero aliquam inventore quaerat sed odit blanditiis culpa? Molestias fuga distinctio quidem ducimus quae vero magni! Autem dolorem repellendus laborum modi corporis culpa soluta, velit nam! At atque optio aliquam excepturi inventore error esse vero reprehenderit ratione. Quisquam provident dicta eveniet voluptatem tempora?
+<br><br>
+       </h6>
+       <div class="jocker0">
+       <div class="jocker">
+        <h1 class="p" style="text-align: center;">hello</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo adipisci velit, deserunt maiores modi quisquam. Beatae tempore quaerat consequuntur aut expedita asperiores alias ratione! Eius omnis eos qui ipsum quos.</p>
+        
+       </div>
+       <div class="jocker">
+        <h1 class="p">wellcom, </h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et inventore corrupti aperiam nobis enim est, placeat sint odio maiores, sit distinctio possimus cum sapiente consequatur, laboriosam eveniet amet fugiat sunt.</p>
+       
+       </div>
+    </div>
+       <div class="jocker1">
+        <h1 class="p">bvbcv</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem fuga esse tempora, illo officia consequatur magnam ipsa molestiae quisquam voluptates accusantium quod unde enim! Iste dicta obcaecati quod magnam veniam!</p>
+        
+       </div>
+
+    </div>
+    <div class="contact">
+        <img src="images/contact.jpg" alt="" width="100%" height="100%" >
+        
+    </div>
+</body>
+
+</html>
